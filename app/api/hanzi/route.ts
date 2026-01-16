@@ -145,7 +145,7 @@ async function searchHanziByPinyin(query: string): Promise<EnhancedResult[]> {
     partialMatches.sort(sortBySyllables)
     shorthandMatches.sort(sortBySyllables)
 
-    return allResults.slice(0, 15)
+    return allResults.slice(0, 10)
 }
 
 export async function POST(request: NextRequest) {
