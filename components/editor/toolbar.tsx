@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Download, FileText, Printer, Copy, Trash2, File, Settings } from "lucide-react"
+import { Download, FileText, Printer, Copy, Trash2, File, Settings, Languages } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,9 +17,11 @@ import ExportDialog from "./export-dialog"
 interface ToolbarProps {
   editorRef: React.RefObject<HTMLDivElement | null>
   content: string
+  hanziInputEnabled: boolean
+  onToggleHanziInput: () => void
 }
 
-export default function Toolbar({ editorRef, content }: ToolbarProps) {
+export default function Toolbar({ editorRef, content, hanziInputEnabled, onToggleHanziInput }: ToolbarProps) {
   const [copied, setCopied] = useState(false)
   const [showExportDialog, setShowExportDialog] = useState(false)
   const [exportType, setExportType] = useState<"docx" | "pdf" | null>(null)
@@ -111,7 +113,17 @@ export default function Toolbar({ editorRef, content }: ToolbarProps) {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="ml-auto">
+        <div className="ml-auto flex gap-2">
+          <Button
+            onClick={onToggleHanziInput}
+            variant={hanziInputEnabled ? "default" : "outline"}
+            className={hanziInputEnabled ? "" : "hover:bg-primary hover:text-primary-foreground"}
+            size="sm"
+            title={hanziInputEnabled ? "Tắt gõ Hán tự" : "Bật gõ Hán tự"}
+          >
+            <Languages className="w-4 h-4 mr-2" />
+            汉字
+          </Button>
           <Button onClick={() => { }} variant="outline" className="hover:bg-primary hover:text-primary-foreground" size="sm" title="Cài đặt">
             <Settings className="w-4 h-4" />
           </Button>

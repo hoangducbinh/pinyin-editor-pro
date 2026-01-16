@@ -118,7 +118,7 @@ export default function Dictionary() {
             <div>
               <p className="text-sm text-muted-foreground">Nhập từ để tra cứu</p>
               <p className="text-xs text-muted-foreground mt-2">
-                Hỗ trợ tìm kiếm tiếng Trung (giản thể, phức thể) hoặc Pinyin
+                Hỗ trợ tìm kiếm tiếng Trung hoặc Pinyin
               </p>
             </div>
           </div>
