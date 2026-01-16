@@ -8,25 +8,25 @@ const geist = Geist({ subsets: ["latin"] })
 
 
 export const metadata: Metadata = {
-  title: "Trình soạn thảo Pinyin",
+  title: "Pinyin editor pro",
   description: "Trình soạn thảo văn bản với hỗ trợ dấu Pinyin, xuất Word và PDF",
-  generator: "v0.app",
+  generator: "hoangducbinh.prod",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/icopinyin.svg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/icopinyin.svg",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/icopinyin.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/icopinyin.svg",
   },
 }
 
