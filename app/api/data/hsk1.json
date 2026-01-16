@@ -2112,5 +2112,19 @@
             "pinyin": "Nǐmen máng ma?",
             "meaning": "Các bạn có bận không?"
         }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c152",
+        "index": 152,
+        "word": {
+            "hanzi": "有",
+            "pinyin": "yǒu"
+        },
+        "meaning": "có",
+        "example": {
+            "hanzi": "我有一个问题。",
+            "pinyin": "Wǒ yǒu yí gè wèntí.",
+            "meaning": "Tôi có một câu hỏi."
+        }
     }
 ]
