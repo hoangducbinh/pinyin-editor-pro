@@ -15,7 +15,6 @@ export function useKeyboardHandler({ onTone, lastCharacter, editorRef }: Keyboar
     const handleKeyDown = (e: KeyboardEvent) => {
       // Kiểm tra xem phím nào được nhấn (1-4)
       if (["1", "2", "3", "4"].includes(e.key) && editorRef.current?.contains(document.activeElement)) {
-        const toneIndex = Number.parseInt(e.key)
         // Bạn có thể gọi hàm onTone nếu cần
       }
     }

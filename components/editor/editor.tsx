@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { forwardRef, useState } from "react"
+import { forwardRef } from "react"
 import { convertTone } from "@/lib/pinyin"
 
 interface EditorProps {
@@ -11,7 +11,7 @@ interface EditorProps {
 }
 
 const Editor = forwardRef<HTMLDivElement, EditorProps>(({ onInput, content }, ref) => {
-  const [selectionStart, setSelectionStart] = useState(0)
+  // ...existing code...
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (["1", "2", "3", "4"].includes(e.key)) {
@@ -27,10 +27,6 @@ const Editor = forwardRef<HTMLDivElement, EditorProps>(({ onInput, content }, re
           if (text && /[a-züv]+\d?/i.test(text)) {
             e.preventDefault()
             const newText = convertTone(text, toneNum)
-            const span = document.createElement("span") // Insert as text node or span? Using text node for cleaner editor content usually, but original used span. 
-            // Let's stick to text node replacement to avoid nesting spans unnecessarily if possible, 
-            // but original code used span, so let's check if span had class. It didn't.
-            // Text node is safer for subsequent editing.
             range.deleteContents()
             range.insertNode(document.createTextNode(newText))
             selection.collapseToEnd()

@@ -71,7 +71,7 @@ export default function ExportDialog({ open, onOpenChange, exportType, content, 
 
           const wrappedLines = pdf.splitTextToSize(line || " ", pageWidth - 2 * margin)
 
-          wrappedLines.forEach((wrappedLine) => {
+          wrappedLines.forEach((wrappedLine: string) => {
             if (yPosition > pageHeight - margin) {
               pdf.addPage()
               yPosition = margin

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
 
@@ -12,7 +11,6 @@ interface ToneHelperProps {
 }
 
 export default function ToneHelper({ lastCharacter, onInsertCharacter }: ToneHelperProps) {
-  const [toneMode, setToneMode] = useState(false)
   const lastChar = lastCharacter.toLowerCase()
   const tones = PINYIN_TONES[lastChar]
 

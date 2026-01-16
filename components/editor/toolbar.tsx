@@ -15,7 +15,7 @@ import {
 import ExportDialog from "./export-dialog"
 
 interface ToolbarProps {
-  editorRef: React.RefObject<HTMLDivElement>
+  editorRef: React.RefObject<HTMLDivElement | null>
   content: string
 }
 
@@ -63,9 +63,6 @@ export default function Toolbar({ editorRef, content }: ToolbarProps) {
     }
   }
 
-  const handleSettings = () => {
-    console.log("Settings")
-  }
 
   return (
     <>
