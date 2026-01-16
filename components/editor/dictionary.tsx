@@ -43,7 +43,7 @@ export default function Dictionary() {
       setResults(data.results || [])
 
       if (data.results.length === 0) {
-        setError("Không tìm thấy kết quả")
+        setError("Hệ thống đang cập nhật dữ liệu mỗi ngày, bạn vui lòng thử lại sau nhé!")
       }
     } catch (err) {
       setError("Lỗi tìm kiếm. Vui lòng thử lại")
@@ -57,7 +57,7 @@ export default function Dictionary() {
     <div className="w-96 border-l border-border bg-card flex flex-col overflow-hidden">
       {/* Header */}
       <div className="p-4">
-        <h3 className="font-semibold text-foreground mb-3">Từ điển Hán-Việt</h3>
+        <h3 className="font-semibold text-foreground mb-3">Tra cứu từ</h3>
 
         {/* Search Form */}
         <form onSubmit={handleSearch} className="flex gap-2">
@@ -118,7 +118,7 @@ export default function Dictionary() {
             <div>
               <p className="text-sm text-muted-foreground">Nhập từ để tra cứu</p>
               <p className="text-xs text-muted-foreground mt-2">
-                Hỗ trợ tìm kiếm tiếng Trung hoặc Pinyin
+                Hỗ trợ tìm kiếm tiếng Trung, Pinyin và nghĩa tiếng Việt
               </p>
             </div>
           </div>

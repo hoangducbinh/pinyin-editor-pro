@@ -39,17 +39,14 @@ async function getHSKData(): Promise<Record<string, DictionaryResult>> {
     const dictionary: Record<string, DictionaryResult> = {}
     const dataDir = path.join(process.cwd(), "app", "api", "data")
 
-    // Load all 6 HSK levels
-    for (let level = 1; level <= 6; level++) {
+    for (let level = 1; level <= 9; level++) {
         const filePath = path.join(dataDir, `hsk${level}.json`)
         const content = await fs.readFile(filePath, "utf8")
         const hskEntries = JSON.parse(content) as HSKEntry[]
 
-        // Transform and merge into dictionary
         for (const entry of hskEntries) {
             const key = entry.word.hanzi
 
-            // Create example string from example object
             const exampleStr = entry.example
                 ? `${entry.example.hanzi} (${entry.example.pinyin}) - ${entry.example.meaning}`
                 : undefined
@@ -57,7 +54,7 @@ async function getHSKData(): Promise<Record<string, DictionaryResult>> {
             dictionary[key] = {
                 word: entry.word.hanzi,
                 pinyin: entry.word.pinyin,
-                meaning: [entry.meaning], // Convert string to array
+                meaning: [entry.meaning],
                 example: exampleStr,
             }
         }
@@ -71,7 +68,7 @@ function normalizePinyin(text: string): string {
     return text
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+        .replace(/[\u0300-\u036f]/g, "")
         .replace(/ü/g, "v")
         .replace(/ǖ/g, "v")
         .replace(/ǘ/g, "v")
@@ -81,8 +78,6 @@ function normalizePinyin(text: string): string {
 }
 
 function isShorthandQuery(query: string): boolean {
-    // Shorthand is 2+ letters where each letter could be the start of a syllable
-    // e.g., "nh", "xh", "zg", "wm"
     return query.length >= 2 && /^[a-z]+$/.test(query)
 }
 
@@ -90,10 +85,8 @@ function matchesShorthand(pinyin: string, shorthand: string): boolean {
     const normalized = normalizePinyin(pinyin)
     const syllables = normalized.split(/\s+/).filter(s => s.length > 0)
 
-    // Extract first letter of each syllable
     const firstLetters = syllables.map(s => s[0]).join('')
 
-    // Check if shorthand matches the beginning of first letters
     return firstLetters.startsWith(shorthand)
 }
 
@@ -113,7 +106,6 @@ async function searchHanziByPinyin(query: string): Promise<EnhancedResult[]> {
         const normalizedPinyin = normalizePinyin(pinyin)
         const syllables = normalizedPinyin.split(/\s+/).filter(s => s.length > 0)
 
-        // Exact match (full pinyin or single syllable)
         if (normalizedPinyin === normalizedQuery || syllables.includes(normalizedQuery)) {
             exactMatches.push({
                 ...value,
@@ -123,7 +115,6 @@ async function searchHanziByPinyin(query: string): Promise<EnhancedResult[]> {
             continue
         }
 
-        // Partial match (pinyin starts with query)
         if (normalizedPinyin.startsWith(normalizedQuery) ||
             syllables.some(s => s.startsWith(normalizedQuery))) {
             partialMatches.push({
@@ -134,7 +125,6 @@ async function searchHanziByPinyin(query: string): Promise<EnhancedResult[]> {
             continue
         }
 
-        // Shorthand match (if query is shorthand)
         if (isShorthand && matchesShorthand(pinyin, normalizedQuery)) {
             shorthandMatches.push({
                 ...value,
@@ -145,10 +135,8 @@ async function searchHanziByPinyin(query: string): Promise<EnhancedResult[]> {
         }
     }
 
-    // Combine results: exact first, then partial, then shorthand
     const allResults = [...exactMatches, ...partialMatches, ...shorthandMatches]
 
-    // Sort each category by syllable count (prefer shorter/simpler words)
     const sortBySyllables = (a: EnhancedResult, b: EnhancedResult) => {
         return (a.syllableCount ?? 0) - (b.syllableCount ?? 0)
     }
@@ -157,8 +145,7 @@ async function searchHanziByPinyin(query: string): Promise<EnhancedResult[]> {
     partialMatches.sort(sortBySyllables)
     shorthandMatches.sort(sortBySyllables)
 
-    // Return top 10 results
-    return allResults.slice(0, 10)
+    return allResults.slice(0, 15)
 }
 
 export async function POST(request: NextRequest) {
@@ -171,7 +158,6 @@ export async function POST(request: NextRequest) {
 
         const trimmedQuery = query.trim()
 
-        // Only search if query is at least 1 character
         if (trimmedQuery.length < 1) {
             return NextResponse.json({ results: [] })
         }
