@@ -2126,5 +2126,33 @@
             "pinyin": "Wǒ yǒu yí gè wèntí.",
             "meaning": "Tôi có một câu hỏi."
         }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c153",
+        "index": 153,
+        "word": {
+            "hanzi": "男朋友",
+            "pinyin": "nán péngyou"
+        },
+        "meaning": "bạn trai",
+        "example": {
+            "hanzi": "他是我的男朋友。",
+            "pinyin": "Tā shì wǒ de nán péngyou.",
+            "meaning": "Anh ấy là bạn trai của tôi."
+        }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c154",
+        "index": 154,
+        "word": {
+            "hanzi": "女朋友",
+            "pinyin": "nǚ péngyou"
+        },
+        "meaning": "bạn gái",
+        "example": {
+            "hanzi": "她是我的女朋友。",
+            "pinyin": "Tā shì wǒ de nǚ péngyou.",
+            "meaning": "Cô ấy là bạn gái của tôi."
+        }
     }
 ]
