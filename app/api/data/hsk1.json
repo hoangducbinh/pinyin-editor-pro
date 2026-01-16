@@ -2168,5 +2168,19 @@
             "pinyin": "Zhǐyǒu nǔlì xuéxí, cái huì chénggōng.",
             "meaning": "Chỉ có học tập chăm chỉ thì mới thành công."
         }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c157",
+        "index": 157,
+        "word": {
+            "hanzi": "一下",
+            "pinyin": "yíxià"
+        },
+        "meaning": "một chút; một lát (làm nhẹ câu nói, mang tính lịch sự)",
+        "example": {
+            "hanzi": "我想去你家玩一下。",
+            "pinyin": "Wǒ xiǎng qù nǐ jiā wán yíxià.",
+            "meaning": "Tôi muốn sang nhà bạn chơi một chút."
+        }
     }
 ]
