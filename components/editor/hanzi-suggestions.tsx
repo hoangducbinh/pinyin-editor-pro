@@ -23,7 +23,6 @@ export default function HanziSuggestions({
 }: HanziSuggestionsProps) {
     const containerRef = useRef<HTMLDivElement>(null)
 
-    // Close on click outside
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -35,7 +34,6 @@ export default function HanziSuggestions({
         return () => document.removeEventListener("mousedown", handleClickOutside)
     }, [onClose])
 
-    // Scroll selected item into view horizontally
     useEffect(() => {
         if (containerRef.current && selectedIndex >= 0) {
             const listElement = containerRef.current.querySelector('.suggestions-list') as HTMLElement
