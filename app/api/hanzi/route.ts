@@ -39,7 +39,7 @@ async function getHSKData(): Promise<Record<string, DictionaryResult>> {
     const dictionary: Record<string, DictionaryResult> = {}
     const dataDir = path.join(process.cwd(), "app", "api", "data")
 
-    for (let level = 1; level <= 9; level++) {
+    for (let level = 1; level <= 6; level++) {
         const filePath = path.join(dataDir, `hsk${level}.json`)
         const content = await fs.readFile(filePath, "utf8")
         const hskEntries = JSON.parse(content) as HSKEntry[]

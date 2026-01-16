@@ -11,7 +11,7 @@ import Dictionary from "@/components/editor/dictionary"
 export default function Home() {
   const editorRef = useRef<HTMLDivElement>(null)
   const [content, setContent] = useState("")
-  const [hanziInputEnabled, setHanziInputEnabled] = useState(false)
+  const [hanziInputEnabled, setHanziInputEnabled] = useState(true)
 
   const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
     const text = e.currentTarget.textContent || ""
