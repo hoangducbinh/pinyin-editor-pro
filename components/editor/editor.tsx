@@ -131,12 +131,12 @@ const Editor = forwardRef<HTMLDivElement, EditorProps>(({ onInput, content, hanz
         }
       }
 
-      if (e.key === "ArrowDown") {
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
         e.preventDefault()
         setSelectedIndex((prev) => (prev + 1) % suggestions.length)
         return
       }
-      if (e.key === "ArrowUp") {
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
         e.preventDefault()
         setSelectedIndex((prev) => (prev - 1 + suggestions.length) % suggestions.length)
         return
