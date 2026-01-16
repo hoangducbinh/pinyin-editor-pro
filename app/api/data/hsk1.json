@@ -1572,7 +1572,7 @@
         "index": 113,
         "word": {
             "hanzi": "我们",
-            "pinyin": "wǒmen"
+            "pinyin": "wǒ men"
         },
         "meaning": "chúng tôi",
         "example": {
@@ -2083,6 +2083,34 @@
             "hanzi": "他正在做作业。",
             "pinyin": "Tā zhèngzài zuò zuòyè.",
             "meaning": "Anh ấy đang làm bài tập về nhà."
+        }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c150",
+        "index": 150,
+        "word": {
+            "hanzi": "你好",
+            "pinyin": "nǐ hǎo"
+        },
+        "meaning": "xin chào",
+        "example": {
+            "hanzi": "你好！",
+            "pinyin": "Nǐ hǎo!",
+            "meaning": "Xin chào!"
+        }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c151",
+        "index": 151,
+        "word": {
+            "hanzi": "你们",
+            "pinyin": "nǐ men"
+        },
+        "meaning": "các bạn",
+        "example": {
+            "hanzi": "你们忙吗？",
+            "pinyin": "Nǐmen máng ma?",
+            "meaning": "Các bạn có bận không?"
         }
     }
 ]
