@@ -2154,5 +2154,19 @@
             "pinyin": "Tā shì wǒ de nǚ péngyou.",
             "meaning": "Cô ấy là bạn gái của tôi."
         }
+    },
+    {
+        "id": "cb281396-8bb3-4c87-a84a-6dde0b6596c155",
+        "index": 155,
+        "word": {
+            "hanzi": "只有",
+            "pinyin": "zhǐyǒu"
+        },
+        "meaning": "chỉ có; chỉ khi (điều kiện duy nhất)",
+        "example": {
+            "hanzi": "只有努力学习，才会成功。",
+            "pinyin": "Zhǐyǒu nǔlì xuéxí, cái huì chénggōng.",
+            "meaning": "Chỉ có học tập chăm chỉ thì mới thành công."
+        }
     }
 ]
